@@ -1,27 +1,21 @@
 
 class Similar {
   constructor(list, alias={}) {
-    this.list = list
-    this.alias = alias
-
-  }
-  check(word) {
-    for(let w of this.list) {
-      if(w === word) {
-        return word
-      }
+    let map = {}
+    for(let w of list) {
+      map[w] = w
     }
-    // use alias
-    for(let key in this.alias) {
-      for(let w of this.alias[key]) {
-        if(w === word) {
-          return key
+    for(let key in alias) {
+      for(let w of alias[key]) {
+        if(map[w] === void 0) {
+          map[w] = key
         }
       }
     }
-
-
-    return ""
+    this.map = map
+  }
+  check(word) {
+    return this.map[word]
   }
 }
 

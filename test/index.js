@@ -7,7 +7,7 @@ describe('simple', function() {
     var similar = new Similar(['install', 'remove']);
     assert.equal('install', similar.check('install'))
     assert.equal('remove', similar.check('remove'))
-    assert.equal('', similar.check('test'))
+    assert.equal(void 0, similar.check('test'))
   });
 
   it('alias', function() {
